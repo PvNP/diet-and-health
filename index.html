@@ -67,6 +67,14 @@ of countries, food groups and years of data collection to build our models, we
 hoped to find results supporting the notion that past diet aects present health
 on a national level.</p>
 										</div>
+										<h3>Objective</h3>
+										<div class="row">
+											<p>For this project we wanted to see if national consumption habits had an influence on disease mortality rates, and if so, how great an influence. In addition, we wanted to explore which food groups had more significant effects.</p>
+										</div>
+										<h3>Approach</h3>
+										<div class="row">
+											<p>We began our study by reading in agriculture and livestock consumption data, filling in missing values by using a 3-nearest geographical neighbors approach. We then created a baseline model, fitting a linear regression model to 2000 diabetes/heart disease data and 1999 consumption data to ensure that the consumption proceeds the deaths and then testing the model on 2012 disease data and 2011 consumption data. Our advanced model explored all possible ranges of years from when we first started collecting data on currently extant countries to 2000, selecting the best range of years. We then selected a subset of predictors using both forward selection and LASSO regularization, resulting in 2 models for a given disease dataset. Finally, we compared the forward selection and LASSO models with the baseline model on both diabetes and heart disease data.</p>
+										</div>
 					</div>
 				</div>
 
