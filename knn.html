@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>You Are What You Eat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header">
+
+						<!-- Logo -->
+							<h1><a href="index.html">You Are What You Eat</a></h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="index.html">Overview</a></li>
+									<li><a href="data.html">Databases and Collection Techniques</a></li>
+									<li class="current"><a href="knn.html">Filling in Missing Data</a></li>
+									<li><a href="analysis.html">Data Exploration</a></li>
+									<li><a href="model.html">Modeling and Classification</a></li>
+									<li><a href="end.html">Conclusions and Future Work</a></li>
+								</ul>
+							</nav>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Portfolio -->
+									<section>
+										<header class="major">
+											<h2>Filling in Missing Data Using K-Nearest Neighbors</h2>
+										</header>
+										<h3>Overview</h3>
+										<div class="row">
+											<p>As some of our countries were missing food comsumption data, we used a k-nearest neighbors approach to fill in the missing data, which we will describe in this section. We can justify using a k-nearest neighbors approach as food growth, trade and consumption is inherently linked to geographic location, so we can likely obtain a good estimate for a countries' consumption data by examining that of its neighbors. An <a href="https://visualign.wordpress.com/2011/10/06/number-of-neighbors-for-world-countries/">analytical study</a> revealed that the average number of bordering countries for a country in the world is 2.7, so we used a 3-nearest-neighbors approach. First we determined which countries in our dataframe were missing data. Countries in our dataframe such as "Czechoslovakia," "Ethiopia PDR," "USSR," "Yugoslav SFR" referred to previously existing countries that have since been replaced by the Czech Republic and Slovakia, Ethiopia, the Russian Federation, and the former Yugoslav Republic of Macedonia respectively. We specifically chose to examine years starting in 1993 (after the last of those countries dissolved), so we chose to ignore them in our analysis.</p>
+											<p>After determining a list of "NaN countries" in our dataframe that we wished to analyze, we found nearest neighbors using closest geographic location by largest city. We obtained a <a href="http://simplemaps.com/resources/world-cities-data">list</a> of the most populated cities in each country (along with their latitudes and longitudes) and created a dataframe using our data. The following figure shows part of our city dataframe.</p>
+											<img src="images/cities.png" alt="Cities">
+										</div>
+									<div class="row">
+									<p>For each country in our NaN countries list, we determined its largest city (by population) from our cities dataframe. We then found the largest city for every other country in our cities dataframe for which we had food consumption data, and found the three that were closest to our NaN country's city (calculated using Euclidean distance using latitude and longitude coordinates) and got their corresponding countries. Finally, given the three nearest neighbors for a given country, we filled in a missing country's data using a normalized mean with respect to population of the neighboring countries' consumption data. To calculate this, we took the sum of the neighboring countries' consumption data for a specific food group and divided it by the sum of the populations of the neighboring countries' largest cities. We then tok the product of this value with the population size of the missing countries' largest city to obtain a more accurate estimate of food consumption for that country with respect to population. </p>
+									<p>To make sure our functions performed as expected, we tried running our functions on our 2000 food consumption dataframe, checking the nearest neighbors for each NaN country as well as making sure the NaN countries' values hae been filled in within our final dataframe. The following figure shows two examples of countries missing data
+	(largest cities marked in red) and the nearest neighbors selected in those cases
+	(highlighted), as well as some potential candidates that were considered (largest
+	cities marked in green). The proximity of the chosen neighboring countries provided a good sanity check that our function was behaving correctly.</p>
+									<img src="images/knn.png" alt="KNN">
+									</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>Original Template Design: <a href="http://twitter.com/ajlkn">AJ</a>, <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
