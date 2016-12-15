@@ -27,21 +27,14 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.html">Overview</a></li>
+									<li><a href="index.html">Overview</a></li>
 									<li><a href="data.html">Databases and Collection Techniques</a></li>
 									<li><a href="knn.html">Filling in Missing Data</a></li>
 									<li><a href="analysis.html">Data Analysis</a></li>
 									<li><a href="model.html">Modeling and Classification</a></li>
-									<li><a href="end.html">Conclusions and Future Work</a></li>
+									<li class="current"><a href="end.html">Conclusions and Future Work</a></li>
 								</ul>
 							</nav>
-							<!-- Banner -->
-								<section id="banner">
-									<header>
-										<h2>Does National Diet Predict Disease Mortality Rates?</h2>
-										<p>by Hansy Piou and Ben Zheng</p>
-									</header>
-								</section>
 
 			<!-- Main -->
 				<div id="main-wrapper">
@@ -52,28 +45,13 @@
 								<!-- Portfolio -->
 									<section>
 										<header class="major">
-											<h2>Overview</h2>
+											<h2>Conclusions and Future Work</h2>
 										</header>
-										<h3>Introduction and Motivation</h3>
 										<div class="row">
-											<p>We've all heard of the saying "You are what you eat" but how well does this
-adage hold up against cold hard facts (and data)? Though widely discussed in
-an informal context, there are few long-term studies showing how diet in
-uences
-well-being. Our project brought a data science approach to this important issue,
-focused on using countries' historical food consumption data to predict diabetes
-and cardiovascular disease mortality rate for that country. Using a wide range
-of countries, food groups and years of data collection to build our models, we
-hoped to find results supporting the notion that past diet aects present health
-on a national level.</p>
-										</div>
-										<h3>Objective</h3>
-										<div class="row">
-											<p>For this project we wanted to see if national consumption habits had an influence on disease mortality rates, and if so, how great an influence. In addition, we wanted to explore which food groups had more significant effects.</p>
-										</div>
-										<h3>Approach</h3>
-										<div class="row">
-											<p>We began our study by reading in agriculture and livestock consumption data, filling in missing values by using a 3-nearest geographical neighbors approach. We then created a baseline model, fitting a linear regression model to 2000 diabetes/heart disease data and 1999 consumption data to ensure that the consumption proceeds the deaths and then testing the model on 2012 disease data and 2011 consumption data. Our advanced model explored all possible ranges of years from when we first started collecting data on currently extant countries to 2000, selecting the best range of years. We then selected a subset of predictors using both forward selection and LASSO regularization, resulting in 2 models for a given disease dataset. Finally, we compared the forward selection and LASSO models with the baseline model on both diabetes and heart disease data.</p>
+											<p>Regardless of whether LASSO or forward selection was used, our advanced models had R^2s of ~0.4, meaning that diet is an important factor in diabetes/heart disease mortality rate, but not an overwhelming one. We suspect that lifestyle, environment, income, and access to healthcare are all just as if, if not more important factors.</p>
+											<p>Nonetheless, although the two models reported different top 10 predictors, some trends were common among both models, and even both diseases. Sugars, and foods which are generally high in carbohydrates, have a significant - and through background knowledge, negative - effect on one’s health.</p>
+
+											<p>We would like to extend our work to show how changes in food consumption rates affect changes in disease mortality rates in countries. Since body weight is more closely tied to diet than mortality rate, we can extend this year-subset model to Obesity/Overweight. Additionally, while it would be more computationally intensive, we can try ranking the features across all possible year intervals, find the best subset, then use it to find the best year.</p>
 										</div>
 					</div>
 				</div>
