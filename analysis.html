@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>You Are What You Eat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header">
+
+						<!-- Logo -->
+							<h1><a href="index.html">You Are What You Eat</a></h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="index.html">Overview</a></li>
+									<li><a href="data.html">Databases and Collection Techniques</a></li>
+									<li><a href="knn.html">Filling in Missing Data</a></li>
+									<li class="current"><a href="analysis.html">Data Exploration</a></li>
+									<li><a href="model.html">Modeling and Classification</a></li>
+									<li><a href="end.html">Conclusions and Future Work</a></li>
+								</ul>
+							</nav>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Portfolio -->
+									<section>
+										<header class="major">
+											<h2>Data Exploration</h2>
+										</header>
+										<h3>Food Group Exploration</h3>
+										<div class="row">
+											<p>Some basic exploration of the data reveals some trends about food consumption. Livestock takes a lot of energy to raise, so high meat consumption is concentrated in a few wealthy countries who can afford the (energy) cost, so histograms of livestock consumption would be right-skewed to various degrees. Agriculture generally has a smaller energy cost, so we can see less skewed histograms, such as the one for Sugar & Sweeteners.</p>
+											<img src="images/foodhisto.png" alt="Food Histo">
+										</div>
+										<h3>World Maps</h3>
+									<div class="row">
+										<p>We then created color-coded world maps to show the variation in disease mortality rates around the world, with deeper colored countries having higher disease mortality rates. We also generated color-coded maps of the change in disease mortality rates from 2000 to 2012, with red countries signifying increasing mortality rates and blue countries signifying decreasing mortality rates. The change in mortality rates for countries with respect to changes in food consumption would provide a good opening for future analysis. Green countries are those for which we have no data. While we considered using a geographical k-nearest neighbors approach, as no scientific correlation has been shown between geographic location and diabetes mortality rate in past research, we deemed such an approach scientifically unsound.</p>
+										<img src="images/2000Diabetes.png" alt="d">
+										<img src="images/2012Diabetes.png" alt="e">
+										<img src="images/DiabetesChange.png" alt="f">
+									<img src="images/2000Cardio.png" alt="a">
+									<img src="images/2012Cardio.png" alt="b">
+									<img src="images/CardioChange.png" alt="c">
+									</div>
+								<h3>"Mini" Heatmaps</h3>
+								<div class="row">
+								<p>Finally, we created "mini heatmaps" showing the correlation between 2000 food group consumption data and diabetes and heart disease mortality. For the former, ignoring the last column where the diabetes mortality rate predictor would naturally be perfectly correlated with itself and provides a good sanity check as well as the "white columns" for which we have no data, we noted that a number of predictors are yellow, indicating "mildly correlation" with diabetes mortality rate, but no overall strong correlation. Again, the last column being completely red indicates that the Cardio Mortality Rate predictor is
+perfectly correlated with itself, serving as a good sanity check for our work. Most of the columns in these "mini heatmaps" are blue, indicating little correlation in this particular case between 2000 food consumption data and disease mortality rates.</p>
+								<img src="images/diabheat.png" alt="1">
+								<img src="images/cardioheat.png" alt="2">
+								<p>We constructed a more robust model to predict disease mortality rates based on past food consumption in our "Modeling and Classification" section, but we just wanted to demonstrate the functionality of our code here.</p>
+								</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>Original Template Design: <a href="http://twitter.com/ajlkn">AJ</a>, <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
