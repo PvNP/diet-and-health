@@ -47,19 +47,30 @@
 										<header class="major">
 											<h2>Databases</h2>
 										</header>
-										<h3>Introduction and Motivation</h3>
+										<h3>Overview</h3>
 										<div class="row">
-											<p>We've all heard of the saying "You are what you eat" but how well does this
-adage hold up against cold hard facts (and data)? Though widely discussed in
-an informal context, there are few long-term studies showing how diet in
-uences
-well-being. Our project brought a data science approach to this important issue,
-focused on using countries' historical food consumption data to predict diabetes
-and cardiovascular disease mortality rate for that country. Using a wide range
-of countries, food groups and years of data collection to build our models, we
-hoped to find results supporting the notion that past diet aects present health
-on a national level.</p>
+											<p>Historical food consumption data was obtained from the Food and Agriculture
+Organization of the United Nations' data repository. Datasets for <a href="http://faostat3.fao.org/download/FB/CC/E">non-meats</a>
+and <a href="http://faostat3.fao.org/download/FB/CL/E">meats</a> were obtained separately. <a href ="http://apps.who.int/gho/data/node.main.A859?lang=en">Disease mortality data</a>
+was obtained from the Global Health Observatory data repository. Food con-
+sumption data was collected by year and ranged from 1961 to 2013. There were
+120 food groups ranging from "Alcoholic Beverages" to "Whey."</p>
 										</div>
+									<div class="row">
+									<p>We first read in data for non-meat food group consumption rates by country. As the data downloaded from the the World Health Organization's Global Health Observatory Data Repository (WHO) had many elements (e.g. "Item Code") which we didn't need, we first "washed" the data to get non-meat food group consumption rates (kgs per capita) for each country. For this particular case, we looked at non-meat food group consumption rates in the year 2000, though (as we will implement later on) we can get food consumption rates for a range of years.</p>
+									<p>We followed the same procedure to get meat product consumption rates by country (kgs per capita) for the year 2000. We combine these two dataframes to get a "dinner" dataframe with all our data.</p>
+									</div>
+									<div class="row">
+									<p>
+									The following figure displays a heat map showing correlation between all of the 120 food groups
+studied in a given year (2000). This map provided an initial viewpoint for us to see if
+there were any groups of signicantly correlated foods based on their consump-
+tion rate. The heatmap suggests all the food groups appear to be relatively
+uncorrelated with each other, while correlated food groups are from similar
+\categories" (e.g. fruits). This implies we can proceed with creating a model
+with relative certainty that food group correlation will not bring us erroneous
+results. Still, this feature warrants future consideration over other years.</p>
+
 					</div>
 				</div>
 
